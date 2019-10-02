@@ -28,13 +28,13 @@ A prebuilt copy of the standalone compiler (for OSX) and SWC is available in the
 
 To build the SWC and the standalone compiler with the AGAL optimizer:
 <pre>
-	make FLASCC=/path/to/flascc/sdk FLEX=/path/to/flexsdk
+make FLASCC=/path/to/flascc/sdk FLEX=/path/to/flexsdk
 </pre>
 
 To build the example SWF:
 
 <pre>
-	make FLASCC=/path/to/flascc/sdk FLEX=/path/to/flexsdk example
+make FLASCC=/path/to/flascc/sdk FLEX=/path/to/flexsdk example
 </pre>
 
 Using the SWC
@@ -66,18 +66,18 @@ Handling the output
 
 The output from the tool is a JSON object containing several fields:
 
-infolog - If there were any conversion errors or syntactic errors in the source glsl then this will contain the errors or warnings that were generated.
+`infolog` - If there were any conversion errors or syntactic errors in the source glsl then this will contain the errors or warnings that were generated.
 
-varnames - this dictionary maps from GLSL variable name to AGAL register name
+`varnames` - this dictionary maps from GLSL variable name to AGAL register name
 
-storage - This dictionary maps from AGAL register name to glsl storage type (uniform, in/out, temp etc)
+`storage` - This dictionary maps from AGAL register name to glsl storage type (uniform, in/out, temp etc)
 
-types - this maps from AGAL register name to the glsl type of the variable stored in that register (vec4, sampler2D etc)
+`types` - this maps from AGAL register name to the glsl type of the variable stored in that register (vec4, sampler2D etc)
 
-consts - This maps from AGAL register name to an array of 4 floating point values that should be stored in that register before executing the shader.
+`consts` - This maps from AGAL register name to an array of 4 floating point values that should be stored in that register before executing the shader.
 
-agalasm (optional) - Contains the AGAL asm suitable for assembly by the AGALMiniAssembler
+`agalasm` (optional) - Contains the AGAL asm suitable for assembly by the AGALMiniAssembler
 
-agalbin (optional) - Contains the binary AGAL shader code that can be uploaded directly to stage3D
+`agalbin` (optional) - Contains the binary AGAL shader code that can be uploaded directly to stage3D
 
 The information in this JSON object should be sufficient to be able to hook up the necessary vertex attribute streams and set all of the required uniforms into the right register. Exactly how this integration is done will depend on the engine you are using.
